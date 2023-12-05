@@ -9,7 +9,6 @@ namespace EngineerCafe
 
         [Header("UI")]
 
-        
         [SerializeField] Canvas _canvas; // Viewを表示するCanvas
 
         /// <summary>
