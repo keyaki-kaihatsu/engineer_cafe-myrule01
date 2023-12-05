@@ -1,15 +1,15 @@
 namespace EngineerCafe
 {
-    public interface IMainViewListener
+    public interface IMainViewListener : IBaseViewListener
     {
         void OnDialogButtonClicked(MainView mainView);
     }
 
     public class MainView : BaseView
     {
-        #region -- Public Properties --
+        #region -- Private Properties --
 
-        public IMainViewListener _listener;
+        IMainViewListener Listener => _listener as IMainViewListener;
 
         #endregion
 
@@ -17,7 +17,7 @@ namespace EngineerCafe
 
         public void OnDialogButtonClick()
         {
-            if (_listener != null) _listener.OnDialogButtonClicked(this);
+            if (Listener != null) Listener.OnDialogButtonClicked(this);
         }
 
         #endregion

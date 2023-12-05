@@ -1,15 +1,15 @@
 namespace EngineerCafe
 {
-    public interface IDialogViewListener
+    public interface IDialogViewListener : IBaseViewListener
     {
         void OnCloseButtonClicked(DialogView dialogView);
     }
 
     public class DialogView : BaseView
     {
-        #region -- Public Properties --
+        #region -- Private Properties --
 
-        public IDialogViewListener _listener;
+        IDialogViewListener Listener => _listener as IDialogViewListener;
 
         #endregion
 
@@ -17,7 +17,7 @@ namespace EngineerCafe
 
         public void OnCloseButtonClick()
         {
-            if (_listener != null) _listener.OnCloseButtonClicked(this);
+            if (Listener != null) Listener.OnCloseButtonClicked(this);
         }
 
         #endregion
